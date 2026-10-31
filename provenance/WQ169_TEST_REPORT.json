@@ -1,0 +1,13 @@
+{
+  "candidate": "Link Sender v0.1.2 source-only",
+  "verified_utc": "2026-10-24T04:27:42.884161+00:00",
+  "core_java_assertions": "28/28 PASS",
+  "operation_cancel_assertions": "13/13 PASS",
+  "static_source_checks": "17/17 PASS",
+  "mock_android_host_compile": "PASS / fake SDK only",
+  "queued_status_regressions": "2/2 PASS",
+  "baseline_v0.1.1_red": "CONFIRMED (stale success after Cancel)",
+  "android_sdk_build": "NOT RUN: SDK/Gradle unavailable",
+  "device_bluetooth_dpad": "NOT RUN",
+  "sweeper": "OWNER HOLD UNCHANGED"
+}

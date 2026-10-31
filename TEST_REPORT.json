@@ -1,0 +1,50 @@
+{
+  "schema": "wqc065-source-only-offline-test-report-v1",
+  "candidate": "Link Sender v0.1.4.1-source-preview",
+  "worker_task": "WQ-C-20261026-017",
+  "run_id": "WQC065_916a873305c3",
+  "created_utc": "2026-10-26T23:08:00.803337+00:00",
+  "parent_zip_sha256": "d8f32f8bed61ac6c6b70268d4dbf245e02c13ea06a2e43e92e98df858804db74",
+  "integrated_patches_ordered": [
+    {
+      "name": "WQB324",
+      "sha256": "46a3c19325572516196178d467f1432cb9ce0ec5407ab88f64247cfd4aed4a02"
+    },
+    {
+      "name": "WQA321",
+      "sha256": "2374dd6d56553a3f4aea36a3659db17b482d0f2d17820a5561d59ef80cb9bfd5"
+    }
+  ],
+  "baseline_expected_failures": [
+    "WQB324 malformed-port baseline: bit.ly:123456/path -> https://bit.ly:12345",
+    "WQA321 percent-escape baseline: bit.ly%2Fsecret -> https://bit.ly"
+  ],
+  "checks": {
+    "baseline_inherited_host": {
+      "exit": 0,
+      "log_sha256": "a41071709c8079265a8201edfb73c6147b705cad85fd4173aa099372a6a74519"
+    },
+    "integrated_inherited_and_regressions_host": {
+      "exit": 0,
+      "log_sha256": "73460ab5d31fb4c08a478d02a4ae9f480597a5b85b65d6562cf1f2e31bcc7358",
+      "new_tests": "12 WQB324 + 39 WQA321 PASS"
+    },
+    "integrated_python_source_mock": {
+      "exit": 0,
+      "log_sha256": "6fa58132d1b7bdc8d44614f4d5c41df9bb9f2ae6c3d1d703aa39615e4fb78449",
+      "groups": 4
+    }
+  },
+  "harness_notes": [
+    "Initial Java test compilation failed because prefixed retrieved filename mismatched public class; copied to canonical name.",
+    "Initial post-patch Java run used stale .class; recompiled and passed.",
+    "First updated Python green-UI contract failed because expected version string was stale; updated contract and reran all four groups."
+  ],
+  "limitations": [
+    "No Android SDK compile, APK, signing or installation",
+    "No Windows 10 native batch execution",
+    "No actual Bluetooth or Kyocera/S20 trial",
+    "Regex heuristic not full URL grammar",
+    "Only owner-tested v0.1.2 APK remains known-good"
+  ]
+}

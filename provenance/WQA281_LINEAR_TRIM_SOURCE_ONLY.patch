@@ -1,0 +1,44 @@
+--- a/app/src/main/java/org/roarincreations/linksender/LinkText.java
++++ b/app/src/main/java/org/roarincreations/linksender/LinkText.java
+@@ -34,21 +34,30 @@
+         return found;
+     }
+ 
++    /** @why Long runs of unmatched closing punctuation must not stall the Android UI.
++     *  @how Count bracket balances once, then move an end index without rescanning
++     *  or copying the shrinking string. Equivalent to the historical trimming rule. */
+     private static String trimTrailing(String value) {
+-        while (!value.isEmpty()) {
+-            char last = value.charAt(value.length() - 1);
++        int openParen = 0, closeParen = 0, openBracket = 0, closeBracket = 0;
++        for (int i = 0; i < value.length(); i++) {
++            char c = value.charAt(i);
++            if (c == '(') openParen++;
++            else if (c == ')') closeParen++;
++            else if (c == '[') openBracket++;
++            else if (c == ']') closeBracket++;
++        }
++        int end = value.length();
++        while (end > 0) {
++            char last = value.charAt(end - 1);
+             boolean terminalPunctuation = ".,;!?".indexOf(last) >= 0;
+-            boolean excessCloseParen = last == ')' && count(value, '(') < count(value, ')');
+-            boolean excessCloseBracket = last == ']' && count(value, '[') < count(value, ']');
++            boolean excessCloseParen = last == ')' && openParen < closeParen;
++            boolean excessCloseBracket = last == ']' && openBracket < closeBracket;
+             if (!terminalPunctuation && !excessCloseParen && !excessCloseBracket) break;
+-            value = value.substring(0, value.length() - 1);
++            if (last == ')') closeParen--;
++            else if (last == ']') closeBracket--;
++            end--;
+         }
+-        return value;
+-    }
+-    private static int count(String value, char target) {
+-        int n = 0;
+-        for (int i = 0; i < value.length(); i++) if (value.charAt(i) == target) n++;
+-        return n;
++        return end == value.length() ? value : value.substring(0, end);
+     }
+ 
+     public static boolean valid(String url) {

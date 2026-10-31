@@ -1,0 +1,40 @@
+{
+  "schema": "source-manifest-v1",
+  "purpose": "WQ169 LinkSender source-only v0.1.2",
+  "sha256": {
+    "README_FIRST.md": "7cccf90f6dd70b9ad1d1b7ec876256bbaf5826fc0c384081528efd9b1e9049ca",
+    "TEST_REPORT.json": "c0b9c183f67e6edf3150bfaa63db272fd8163f17b6267021b6c70246d3ec718d",
+    "app/build.gradle": "b1cde09f044d1424785e92b064d55d503e9aa45448164403e205a38f15588967",
+    "app/src/main/AndroidManifest.xml": "89eceed31b500600b951e95a43d284fa4b47e7fb35260383e3d53b51f3184848",
+    "app/src/main/java/org/roarincreations/linksender/LinkFrame.java": "67d363d8e70c7485193ea97e05837db6553d8e8a324bd7a195953e7e75dcfabc",
+    "app/src/main/java/org/roarincreations/linksender/LinkText.java": "0d3b729feb0d03af70f24c0318e674228cb0f5b4ee33d9b13d0aea44116443d7",
+    "app/src/main/java/org/roarincreations/linksender/MainActivity.java": "7db6d3624f6289ed58e7d99240cabcb1e2ed7410f297d27f928f04ea9e64e8c2",
+    "app/src/main/java/org/roarincreations/linksender/OperationGate.java": "5c88b23b66b5ac22ddfc96692c1a09963b0aae0e000a97750fd97af70df94e3f",
+    "build.gradle": "36d655a9067d39892bba80896925f12e70f6b0d7481fe914ec6a61bbbde967cb",
+    "core-tests/TestLinkCore.java": "7674dcc8c388329aedfa26d96a8e593d80a93155820f346ea30fd48b233743ca",
+    "core-tests/TestOperationGate.java": "95d67bb2e67ed9f3d945ac4eab87c5b80b5bd5e1c1e39961e6722a7a8e2d36eb",
+    "core-tests/check_source_safety.py": "7116bf15c3de95d1ac9781bda0a04c701cd2a4074d89cedc21022d1cfd23c6cf",
+    "core-tests/run.bat": "f9f2e4b4ac441cf856f4b18759808d259e38f5197285a86517725df3cd79326a",
+    "core-tests/run.sh": "5e4625ee18f1d8a0607485cfe2244d374d4861fd3634fc0ef02c78d92e682466",
+    "core-tests/run_mock_ui_probe.py": "9a3db272ae2e30728f68c6a69c1f39616c36929c5005e5e927caaa5c03f432a9",
+    "settings.gradle": "2f6638fa4a911a2c0afc4ead6b37031f844d2f4cef975fbb9852551194d70b67"
+  },
+  "size": {
+    "README_FIRST.md": 7238,
+    "TEST_REPORT.json": 531,
+    "app/build.gradle": 425,
+    "app/src/main/AndroidManifest.xml": 1385,
+    "app/src/main/java/org/roarincreations/linksender/LinkFrame.java": 2532,
+    "app/src/main/java/org/roarincreations/linksender/LinkText.java": 2448,
+    "app/src/main/java/org/roarincreations/linksender/MainActivity.java": 13168,
+    "app/src/main/java/org/roarincreations/linksender/OperationGate.java": 1829,
+    "build.gradle": 73,
+    "core-tests/TestLinkCore.java": 3985,
+    "core-tests/TestOperationGate.java": 3266,
+    "core-tests/check_source_safety.py": 1533,
+    "core-tests/run.bat": 565,
+    "core-tests/run.sh": 466,
+    "core-tests/run_mock_ui_probe.py": 9449,
+    "settings.gradle": 271
+  }
+}

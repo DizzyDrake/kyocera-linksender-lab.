@@ -1,0 +1,11 @@
+--- a/app/src/main/java/org/roarincreations/linksender/LinkText.java
++++ b/app/src/main/java/org/roarincreations/linksender/LinkText.java
+@@ -21,7 +21,7 @@
+         // Embedded prose still uses the existing conservative punctuation-trimming path.
+         String whole = text.trim();
+         String wholeUrl = whole;
+-        if (whole.matches("(?i)^https?://.*") && CANDIDATE.matcher(whole).matches() && valid(wholeUrl)) {
++        if (whole.matches("(?i)^https?://.*") && valid(wholeUrl)) {
+             return Collections.singletonList(wholeUrl);
+         }
+         List<String> found = new ArrayList<>();

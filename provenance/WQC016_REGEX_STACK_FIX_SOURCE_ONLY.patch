@@ -1,0 +1,11 @@
+--- candidate/app/src/main/java/org/roarincreations/linksender/LinkText.java	2026-10-24 00:00:00.000000000 +0000
++++ patched/app/src/main/java/org/roarincreations/linksender/LinkText.java	2026-10-24 20:04:36.506692858 +0000
+@@ -12,7 +12,7 @@
+     public static final int MAX_URL_CHARS = 4096;
+     // Reject matches embedded in emails or paths; accept ordinary domains with alphabetic TLDs.
+     private static final Pattern CANDIDATE = Pattern.compile(
+-        "(?i)(?<![a-z0-9@._/-])(?:https?://[^\\s<>\\\"']+|(?:[a-z0-9-]+\\.)+[a-z]{2,}(?::[0-9]{1,5})?(?:/[^\\s<>\\\"']*)?(?:\\?[^\\s<>\\\"']*)?)");
++        "(?i)(?<![a-z0-9@._/-])(?:https?://[^\\s<>\\\"']+|(?:[a-z0-9-]+\\.){1,127}[a-z]{2,}(?::[0-9]{1,5})?(?:/[^\\s<>\\\"']*)?(?:\\?[^\\s<>\\\"']*)?)");
+     private LinkText() { }
+ 
+     public static List<String> extract(String text) {

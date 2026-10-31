@@ -1,0 +1,27 @@
+{
+  "schema": "wqa387-offline-source-test-report-v1",
+  "task_id": "WQ-20261028-005",
+  "candidate": "Link Sender v0.1.4.2-source-preview",
+  "date_utc": "2026-10-28",
+  "parent_zip_sha256": "9013e00d8d57543f2196650b14a780374b58c46c61a81fbae5a00d145dcfda6d",
+  "optional_patch_sha256": "eeecd07c99aa4fc7b756bcfbe5ef6416b5bd017944cc28a495d3ad1810af9059",
+  "source_patch_apply": "patch -p1 --fuzz=0 PASS",
+  "negative_control": "Frozen WQC065 MainActivity plus upgraded deferred mock: expected exit 1, assertion Delayed initial focus stole shared-text Finish focus",
+  "positive_controls": {
+    "bash_core_tests_run_sh": "exit 0",
+    "python_source_safety": "PASS 25",
+    "python_green_ui": "PASS 22",
+    "python_stale_link_guard": "exit 0",
+    "python_deferred_mock": "exit 0",
+    "python_wqa387_focus": "4/4 passed"
+  },
+  "native_windows_10": "NOT TESTED",
+  "android_sdk_compile": "NOT RUN",
+  "apk_built": false,
+  "real_kyocera_focus": "NOT TESTED",
+  "bluetooth_transfer": "NOT TESTED",
+  "notes": [
+    "Authoring integrate.py emitted a final no-op assertion after all substantive edits; code and subsequent tests passed",
+    "Prior WQE089 patch and WQC065 original tests are frozen; source-only trial, no owner installation."
+  ]
+}

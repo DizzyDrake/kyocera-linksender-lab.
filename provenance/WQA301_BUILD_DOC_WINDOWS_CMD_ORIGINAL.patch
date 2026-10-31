@@ -1,0 +1,50 @@
+--- a/BUILD_AN_APK.md
++++ b/BUILD_AN_APK.md
+@@ -1,4 +1,10 @@
+-**Owner-requested visual edition (2026-10-25):** v0.1.3.3 **SOURCE ONLY**, *not a new release/APK*. The source-prepared date is 2026-10-25. Every eventual APK build will show its actual UTC build date in the in-app About card and the credit **Made by GPT-6 and Aurora Williamsen**. The release date displays **Not released** by default. When and only when the owner explicitly approves issuing a release, a Gradle build may include `-PlinkSenderReleaseDateUtc=YYYY-MM-DD` (for example `gradle :app:assembleDebug -PlinkSenderReleaseDateUtc=2026-10-25` ONLY if that date really is the approved release date). The parameter is display metadata, not release approval. The manual workflow artifact is now `LinkSender-v0.1.3.3-debug-APK`; the workflow has not been triggered.
++# CURRENT WQA299 BUILD HANDOFF — v0.1.3.7 SOURCE ONLY
++
++This frozen candidate has not been compiled as an APK. Its manual GitHub Actions artifact is **LinkSender-v0.1.3.7-debug-APK**. The dated v0.1.3.3 and v0.1.3.2 notes below describe earlier source candidates; do not use their artifact names for this build. Preserve the owner-tested v0.1.2 APK and its signing/rollback plan.
++
++---
++
++**Historical visual edition (2026-10-25, v0.1.3.3):** v0.1.3.3 **SOURCE ONLY**, *not a new release/APK*. The source-prepared date is 2026-10-25. Every eventual APK build will show its actual UTC build date in the in-app About card and the credit **Made by GPT-6 and Aurora Williamsen**. The release date displays **Not released** by default. When and only when the owner explicitly approves issuing a release, a Gradle build may include `-PlinkSenderReleaseDateUtc=YYYY-MM-DD` (for example `gradle :app:assembleDebug -PlinkSenderReleaseDateUtc=2026-10-25` ONLY if that date really is the approved release date). The parameter is display metadata, not release approval. The historical workflow artifact was `LinkSender-v0.1.3.3-debug-APK`; the workflow has not been triggered.
+ 
+ **Known issues carried forward:** standalone URL punctuation/adjacent HTTP URL ambiguity. Do not install over working v0.1.2 automatically; preserve debug-signing fallback instructions below.
+ 
+@@ -18,7 +24,7 @@
+ 1. On GitHub, create an **empty private repository** you control, for example `kyocera-linksender-lab`.
+ 2. Put the **contents of the LinkSender folder**, including hidden `.github/workflows/`, at the **repository root**. GitHub Desktop plus your desktop file manager is a reasonable route; commit and push. Do **not** upload this ZIP as one undissected blob.
+ 3. In GitHub, select **Actions > Build Link Sender debug APK > Run workflow**. The workflow runs only when you ask; it doesn't build on every push.
+-4. When the run succeeds, open it and download artifact **LinkSender-v0.1.3.3-debug-APK**, unzip the artifact on your computer, and locate `app-debug.apk`.
++4. When the run succeeds, open it and download artifact **LinkSender-v0.1.3.7-debug-APK**, unzip the artifact on your computer, and locate `app-debug.apk`.
+ 5. Keep the debug APK as an **unaccepted test build** until source and install steps are reviewed. Never send real SMS content to the build; the repository should contain only the invented sample tests and app source.
+ 
+ The workflow installs JDK 17, Android SDK Platform 35 and Build-Tools 35, Gradle 8.7 and runs `gradle :app:assembleDebug`. Android Gradle Plugin is 8.6.1. Android Gradle `assembleDebug` outputs an **automatically debug-signed APK** usable for a private trial. *The workflow has not been run by the assistant.* GitHub Actions can consume private-repository usage quota.
+--- a/build_apk_windows.cmd
++++ b/build_apk_windows.cmd
+@@ -1,4 +1,3 @@
+-\
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+--- a/SOURCE_MANIFEST.json
++++ b/SOURCE_MANIFEST.json
+@@ -8,7 +8,7 @@
+   "files": {
+     ".github/workflows/build-linksender-debug-apk.yml": "02d5e8cb7590dcc1f7d0fcac5264ec88b70b5fd2b83293b84cbfa6e28a8871e4",
+     ".gitignore": "4147c036e447244409768aaa025131571510be3c52068170d180948759973843",
+-    "BUILD_AN_APK.md": "12e0354af222cf038dd7a5cf651100b00760a5338963729d4d3958c203c9b388",
++    "BUILD_AN_APK.md": "dff0dc85f1eca1743d2a61aaff5d4eb9e40d49a7b2ab68155cba4f5da9bf226c",
+     "OWNER_REQUESTED_GREEN_UI_2026-10-25.md": "ad308560b64041b453539c54a5576946173fab5309a4f2b1d8aa297d57ee410a",
+     "PROVENANCE.md": "87165a0d47b58a3760c5f3e02ff57dd8e90421ff78e9f3c81e1f9f05dff876f0",
+     "README_FIRST.md": "7362e6aa3e0c7379a0062655da661f71ffa6ca48b73c8e3e9e7cde4220b32a04",
+@@ -25,7 +25,7 @@
+     "app/src/main/java/org/roarincreations/linksender/MainActivity.java": "a463e1342d8c5d657c1729ce5e10ea307ed885634084a103a22b417bee22f0c5",
+     "app/src/main/java/org/roarincreations/linksender/OperationGate.java": "5c88b23b66b5ac22ddfc96692c1a09963b0aae0e000a97750fd97af70df94e3f",
+     "build.gradle": "36d655a9067d39892bba80896925f12e70f6b0d7481fe914ec6a61bbbde967cb",
+-    "build_apk_windows.cmd": "b61569ce50b19883e0a26df594f58f262bf95cee516ed96dcd713dc06cd832c9",
++    "build_apk_windows.cmd": "eb393a3a7648cbe96e19617661fb645315a9d9332d78f7832e7b953ff9e3b5f9",
+     "core-tests/TestApostropheLinkFidelity.java": "814c8a44cb431db86b2cabf43f64d64db97c02639b727b278ec92e61e479751b",
+     "core-tests/TestExplicitStandaloneUrl.java": "cdd88a7fa7aabc11e2bea778806ad258dfdf0e6d719f2ab38b6008cde8804854",
+     "core-tests/TestLinkCore.java": "7674dcc8c388329aedfa26d96a8e593d80a93155820f346ea30fd48b233743ca",

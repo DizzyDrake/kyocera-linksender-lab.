@@ -1,0 +1,41 @@
+{
+  "schema": "wqc059-offline-test-report-v1",
+  "candidate": "Link Sender v0.1.4.0-source-preview",
+  "worker_task": "WQ-C-20261026-011",
+  "parent_sha256": "3d735872da65b1e9da1c9add19a2a78f79db70d2b2411b421d82565721f8f241",
+  "wqe059_patch_sha256": "9ded55fe984c011e2f1d21e8c39abb6ec1e69e9b9e2d15d1efebe4e19289c2b5",
+  "tests": {
+    "stale": {
+      "exit": 0,
+      "log_sha256": "ba19f2a8c52e28ae2703df1308f242cdf2cd6aac45577108d7d5756cefc9f895"
+    },
+    "ui_contract": {
+      "exit": 0,
+      "log_sha256": "99b9eabedc8cae81b18ca15e52bc58aea26b5b2ed57b3a8f09e559e31b1ba3aa"
+    },
+    "mock_ui": {
+      "exit": 0,
+      "log_sha256": "5db43b92c8a2cdcdcf090ac0c544aed84e4c370a2b3f199862e78b4f39ac2a77"
+    },
+    "safety": {
+      "exit": 0,
+      "log_sha256": "0c6c2e0bc61e77cc40ad61ebcd56ee6d646b1162c6d35b924d52caa16dc388b0"
+    },
+    "host": {
+      "exit": 0,
+      "log_sha256": "c674dce843d26164d7d8f72908d8ee70085e0358a919c99ad903042212e8648c"
+    }
+  },
+  "baseline_expected_failure": "bit.ly#part dropped fragment (source-only host regression)",
+  "new_tests": {
+    "WQE059": "14/14",
+    "WQC059": "10/10"
+  },
+  "limits": [
+    "No Android SDK or APK compilation",
+    "No Windows 10 native execution",
+    "No Bluetooth or Kyocera hardware tests",
+    "No signing/install/deployment",
+    "No real SMS, contacts or owner data"
+  ]
+}

@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+// Build date is injected into each APK by Gradle. A release date is never
+// invented; the owner can set -PlinkSenderReleaseDateUtc=YYYY-MM-DD when issuing
+// an accepted release. The default makes preview/test builds explicit.
+def buildDateUtc = new Date().format('yyyy-MM-dd', TimeZone.getTimeZone('UTC'))
+def releaseDateUtc = (project.findProperty('linkSenderReleaseDateUtc') ?: 'Not released').toString()
+if (releaseDateUtc != 'Not released' && !(releaseDateUtc ==~ /\d{4}-\d{2}-\d{2}/)) {
+    throw new GradleException('linkSenderReleaseDateUtc must be YYYY-MM-DD')
+}
+
+
+android {
+    namespace 'org.roarincreations.linksender'
+    compileSdk 35
+    buildFeatures { buildConfig true }
+    defaultConfig {
+        applicationId 'org.roarincreations.linksender'
+        minSdk 29
+        targetSdk 32
+        versionCode 15
+        versionName '0.1.4.2-source-preview'
+        buildConfigField 'String', 'BUILD_DATE_UTC', '\"' + buildDateUtc + '\"'
+        buildConfigField 'String', 'RELEASE_DATE_UTC', '\"' + releaseDateUtc + '\"'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

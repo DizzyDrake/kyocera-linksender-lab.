@@ -1,0 +1,30 @@
+{
+  "task_id": "WQ-20261024-200",
+  "candidate": "Link Sender v0.1.3 source-only",
+  "observed_utc": "2026-10-24T18:27:23.663479+00:00",
+  "tests": {
+    "inherited_link_core": 28,
+    "inherited_operation_gate": 13,
+    "new_text_transfer": 39,
+    "static_source_assertions": 25,
+    "fake_android_behavior_probes": 3
+  },
+  "all_final_passed": true,
+  "test_scope": "JDK 21 with --release 17; fake Android API stubs only",
+  "not_tested": [
+    "genuine Android SDK compile",
+    "real APK build",
+    "Windows 10",
+    "Kyocera E4831 physical focus and IME",
+    "LineageOS S20 receiving new typed text",
+    "real Bluetooth v0.1.3 transfer",
+    "Discord unrelated"
+  ],
+  "known_issues": [
+    "No actual physical D-pad validation; Back may first dismiss the soft keyboard",
+    "Text frames require v0.1.3 receiver; older receiver rejects LSB2",
+    "Manual Android debug build may use different signing key",
+    "No link expansion/network fetch; links shown with https:// prefix only when user chooses link mode"
+  ],
+  "failure_preserved": "static_preflight_initial_failure.txt: stale test assertion for BACK after deliberate Activity handling correction"
+}

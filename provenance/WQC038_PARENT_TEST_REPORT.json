@@ -1,0 +1,27 @@
+{
+  "task_id": "WQ-20261024-204",
+  "candidate": "Link Sender v0.1.3.2 source-only consolidated owner build kit",
+  "parent_wq202_sha256": "850511f9e957f652bb524e87ad2805d32c9abd8677f9ee374f747bb9359c0a58",
+  "integrated_review": "WQ-C-20261024-016",
+  "review_patch_sha256": "26640e3890e178352dc5f5246c97a15bf193bf1ef7d66f67d3625e37f4101a6f",
+  "host_java_runtime": "OpenJDK 21.0.12.1, compiled --release 17",
+  "tests": {
+    "inherited_url_protocol": 28,
+    "inherited_operation_gate": 13,
+    "inherited_typed_text": 39,
+    "new_regex_bounded": 12,
+    "static_checks": 25,
+    "fake_android_inherited_probes": 3,
+    "stale_link_guard_probes": 2
+  },
+  "baseline_failure": "Unpatched WQ202 LinkText.extract raised StackOverflowError for 3000 dotted labels (6000 chars). See evidence bundle.",
+  "all_reported_tests_passed": true,
+  "limitations": [
+    "No Android SDK or Gradle compilation",
+    "No APK built or signed",
+    "No Windows 10 native test",
+    "No physical Kyocera or LineageOS trial",
+    "No real Bluetooth transfer for this candidate",
+    "No claim of matching installed app or update signing compatibility"
+  ]
+}

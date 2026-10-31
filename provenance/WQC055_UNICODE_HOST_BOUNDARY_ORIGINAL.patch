@@ -1,0 +1,11 @@
+--- a/app/src/main/java/org/roarincreations/linksender/LinkText.java
++++ b/app/src/main/java/org/roarincreations/linksender/LinkText.java
+@@ -12,7 +12,7 @@
+     public static final int MAX_URL_CHARS = 4096;
+     // Reject matches embedded in emails or paths; accept ordinary domains with alphabetic TLDs.
+     private static final Pattern CANDIDATE = Pattern.compile(
+-        "(?i)(?<![a-z0-9@._/-])(?:https?://(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))++|(?:[a-z0-9-]+\\.){1,127}[a-z]{2,}(?::[0-9]{1,5})?(?:/(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))*+)?(?:\\?(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))*+)?)");
++        "(?i)(?<![\\p{L}\\p{M}\\p{N}@._/-])(?:https?://(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))++|(?:[a-z0-9-]+\\.){1,127}[a-z]{2,}(?::[0-9]{1,5})?(?:/(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))*+)?(?:\\?(?:[^\\s<>\\\"']|(?<=[a-z0-9])'(?=[a-z0-9]))*+)?)");
+     private LinkText() { }
+ 
+     public static List<String> extract(String text) {

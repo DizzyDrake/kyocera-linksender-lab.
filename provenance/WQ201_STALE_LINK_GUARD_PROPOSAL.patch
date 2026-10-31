@@ -1,0 +1,41 @@
+--- a/app/src/main/java/org/roarincreations/linksender/MainActivity.java
++++ b/app/src/main/java/org/roarincreations/linksender/MainActivity.java
+@@ -44,6 +44,7 @@
+     private Spinner linkChoices, devices;
+     private Button send, sendText, listen, cancel, copy, editTextButton, useEntered;
+     private final List<String> choices = new ArrayList<>();
++    private String choicesFromInput = "";
+     private final List<BluetoothDevice> paired = new ArrayList<>();
+     private volatile OperationGate activeOperation;
+     private volatile boolean busy;
+@@ -136,6 +137,7 @@
+     }
+ 
+     private void updateChoices(String text) {
++        choicesFromInput = text;
+         choices.clear(); choices.addAll(LinkText.extract(text));
+         List<String> labels = new ArrayList<>();
+         if (choices.isEmpty()) labels.add("No link found (text can still be sent)");
+@@ -210,6 +212,12 @@
+     }
+     private void sendSelected() {
+         if (busy || !ready()) return;
++        // Never send a cached link after the editor has changed.
++        if (!input.getText().toString().equals(choicesFromInput)) {
++            updateChoices(input.getText().toString());
++            setStatus("Text changed. Review the selected link before sending.");
++            return;
++        }
+         if (choices.isEmpty()) { setStatus("No link selected. Use Send entered text for ordinary text."); return; }
+         int index = linkChoices.getSelectedItemPosition();
+         if (index < 0 || index >= choices.size()) return;
+@@ -286,6 +294,9 @@
+     }
+     private void leaveTextEditing() {
+         if (useEntered == null) return;
++        // Hardware-key exit must refresh the link picker, not leave stale links.
++        if (!input.getText().toString().equals(choicesFromInput))
++            updateChoices(input.getText().toString());
+         useEntered.requestFocus();
+         InputMethodManager ime = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+         if (ime != null) ime.hideSoftInputFromWindow(input.getWindowToken(), 0);
