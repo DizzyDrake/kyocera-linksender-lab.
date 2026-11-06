@@ -1,3 +1,4 @@
+# WQE175 follow-on: update only current version assertions; WQA387 ZIP remains frozen.
 """Source-only WQA387 focus integration checks; not an Android build."""
 import unittest
 from pathlib import Path
@@ -11,9 +12,9 @@ class Integration(unittest.TestCase):
  def test_source_metadata(self):
   gradle=(ROOT/'app/build.gradle').read_text()
   workflow=(ROOT/'.github/workflows/build-linksender-debug-apk.yml').read_text()
-  self.assertIn('versionCode 15',gradle)
-  self.assertIn("versionName '0.1.4.2-source-preview'",gradle)
-  self.assertIn('LinkSender-v0.1.4.2-debug-APK',workflow)
+  self.assertIn('versionCode 16',gradle)
+  self.assertIn("versionName '0.1.4.3-source-preview'",gradle)
+  self.assertIn('LinkSender-v0.1.4.3-debug-APK',workflow)
   self.assertIn('workflow_dispatch:',workflow)
  def test_no_sms_permission_and_receiver_still_nonautoopen(self):
   manifest=(ROOT/'app/src/main/AndroidManifest.xml').read_text()

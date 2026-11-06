@@ -18,8 +18,8 @@ android {
         applicationId 'org.roarincreations.linksender'
         minSdk 29
         targetSdk 32
-        versionCode 15
-        versionName '0.1.4.2-source-preview'
+        versionCode 16
+        versionName '0.1.4.3-source-preview'
         buildConfigField 'String', 'BUILD_DATE_UTC', '\"' + buildDateUtc + '\"'
         buildConfigField 'String', 'RELEASE_DATE_UTC', '\"' + releaseDateUtc + '\"'
     }

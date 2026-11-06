@@ -24,6 +24,26 @@ final class LinkSenderStyle {
         bg.setStroke(2, BORDER);
         return bg;
     }
+    /** Yellow follows hardware focus; default remains the owner-liked pale sage. */
+    static StateListDrawable spinnerBackground() {
+        StateListDrawable bg = new StateListDrawable();
+        bg.addState(new int[]{android.R.attr.state_focused}, surface(FOCUS));
+        bg.addState(new int[]{android.R.attr.state_pressed}, surface(PRESSED));
+        bg.addState(new int[]{}, surface(EDITOR));
+        return bg;
+    }
+
+    /** Selected item has a sage base; the moving D-pad row is pale yellow. */
+    static StateListDrawable dropdownRowBackground(boolean committed) {
+        StateListDrawable bg = new StateListDrawable();
+        bg.addState(new int[]{android.R.attr.state_selected}, surface(FOCUS));
+        bg.addState(new int[]{android.R.attr.state_focused}, surface(FOCUS));
+        bg.addState(new int[]{android.R.attr.state_activated}, surface(FOCUS));
+        bg.addState(new int[]{android.R.attr.state_pressed}, surface(PRESSED));
+        bg.addState(new int[]{}, surface(committed ? BUTTON : CARD));
+        return bg;
+    }
+
     static StateListDrawable buttonBackground() {
         StateListDrawable bg = new StateListDrawable();
         bg.addState(new int[]{android.R.attr.state_focused}, surface(FOCUS));

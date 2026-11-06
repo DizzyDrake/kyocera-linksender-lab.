@@ -1,3 +1,4 @@
+# WQE175 follow-on: update only current version assertions; WQA387 ZIP remains frozen.
 """Owner-theme source/API contract checks; NOT an Android SDK or phone render test."""
 from pathlib import Path
 import re
@@ -15,7 +16,7 @@ assert 'new int[]{android.R.attr.state_focused}' in style
 for marker in ['status = infoBox(', 'received = infoBox(', 'BuildConfig.VERSION_NAME', 'BuildConfig.BUILD_DATE_UTC', 'BuildConfig.RELEASE_DATE_UTC', 'Made by GPT-6 and Aurora Williamsen', 'getDropDownView', 'setTextColor(LinkSenderStyle.INK)', 'scroll.post(() -> {']:
     assert marker in ui, marker
 assert 'if (!useEntered.hasFocus()) editTextButton.requestFocus();' in ui
-assert "versionCode 15" in gradle and "versionName '0.1.4.2-source-preview'" in gradle
+assert "versionCode 16" in gradle and "versionName '0.1.4.3-source-preview'" in gradle
 assert 'linkSenderReleaseDateUtc' in gradle and "'Not released'" in gradle
 assert 'buildConfigField' in gradle and 'new Date().format' in gradle
 assert 'android:label="Link Sender"' in manifest and 'READ_SMS' not in manifest

@@ -96,23 +96,39 @@ public final class MainActivity extends Activity {
         root.addView(b, lp); b.setOnClickListener(action);
         return b;
     }
-    private ArrayAdapter<String> spinnerAdapter(List<String> values) {
+    /** The closed picker shows the committed choice; yellow in the open list follows D-pad focus. */
+    private ArrayAdapter<String> spinnerAdapter(List<String> values, Spinner picker) {
         ArrayAdapter<String> a = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item, values) {
             @Override public View getView(int position, View convertView, ViewGroup parent) {
                 View v = super.getView(position, convertView, parent);
                 if (v instanceof TextView) {
-                    ((TextView) v).setTextColor(LinkSenderStyle.INK);
-                    ((TextView) v).setPadding(12, 12, 12, 12);
+                    TextView label = (TextView) v;
+                    label.setText("✓ " + values.get(position)); // committed choice, even without focus
+                    label.setTextColor(LinkSenderStyle.INK);
+                    label.setTextSize(16);
+                    label.setSingleLine(false);
+                    label.setMaxLines(2);
+                    label.setGravity(Gravity.CENTER_VERTICAL);
+                    label.setPadding(12, 12, 12, 12);
                 }
                 return v;
             }
             @Override public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 View v = super.getDropDownView(position, convertView, parent);
                 if (v instanceof TextView) {
-                    ((TextView) v).setTextColor(LinkSenderStyle.INK);
-                    v.setBackgroundColor(LinkSenderStyle.CARD);
-                    ((TextView) v).setPadding(12, 12, 12, 12);
+                    TextView label = (TextView) v;
+                    boolean committed = position == picker.getSelectedItemPosition();
+                    label.setText((committed ? "✓ " : "   ") + values.get(position));
+                    label.setTextColor(LinkSenderStyle.INK);
+                    label.setTextSize(16);
+                    label.setSingleLine(false);
+                    label.setMaxLines(2);
+                    label.setGravity(Gravity.CENTER_VERTICAL);
+                    label.setPadding(12, 10, 12, 10);
+                    // A ListView moves selected/focused state as the D-pad moves.
+                    // Do not set a fixed color: it would conceal the moving highlight.
+                    v.setBackground(LinkSenderStyle.dropdownRowBackground(committed));
                 }
                 return v;
             }
@@ -153,11 +169,11 @@ public final class MainActivity extends Activity {
         button(root, "Paste clipboard (only when pressed)", v -> paste());
         text(root, "Optional selected link (bare domains are shown with https://)");
         linkChoices = new Spinner(this); linkChoices.setFocusable(true);
-        linkChoices.setBackground(LinkSenderStyle.surface(LinkSenderStyle.EDITOR));
+        linkChoices.setBackground(LinkSenderStyle.spinnerBackground());
         root.addView(linkChoices);
         text(root, "Paired receiving phone");
         devices = new Spinner(this); devices.setFocusable(true);
-        devices.setBackground(LinkSenderStyle.surface(LinkSenderStyle.EDITOR));
+        devices.setBackground(LinkSenderStyle.spinnerBackground());
         root.addView(devices);
         button(root, "Refresh paired phones", v -> refreshDevices());
         send = button(root, "Send selected link", v -> sendSelected());
@@ -169,7 +185,7 @@ public final class MainActivity extends Activity {
         copy.setEnabled(false);
         text(root, "ABOUT LINK SENDER");
         infoBox(root, "Version " + BuildConfig.VERSION_NAME
-                + "  •  Prepared 2026-10-26"
+                + "  •  Prepared 2026-10-31"
                 + "\nBuild date (UTC): " + BuildConfig.BUILD_DATE_UTC
                 + "\nRelease date (UTC): " + BuildConfig.RELEASE_DATE_UTC
                 + "\nMade by GPT-6 and Aurora Williamsen"
@@ -212,7 +228,7 @@ public final class MainActivity extends Activity {
         List<String> labels = new ArrayList<>();
         if (choices.isEmpty()) labels.add("No link found (text can still be sent)");
         else for (int i = 0; i < choices.size(); i++) labels.add((i + 1) + ": " + choices.get(i));
-        linkChoices.setAdapter(spinnerAdapter(labels));
+        linkChoices.setAdapter(spinnerAdapter(labels, linkChoices));
         if (status != null) setStatus(choices.size() + " link(s) found; text sending is also available.");
     }
 
@@ -243,7 +259,7 @@ public final class MainActivity extends Activity {
             paired.add(d); labels.add(d.getName() == null ? "Paired device" : d.getName());
         }
         if (labels.isEmpty()) labels.add("No paired phones: pair in system Settings");
-        devices.setAdapter(spinnerAdapter(labels));
+        devices.setAdapter(spinnerAdapter(labels, devices));
         setStatus(paired.size() + " paired device(s). Receiver must press Receive first.");
     }
     private void setStatus(String message) { status.setText(message); }

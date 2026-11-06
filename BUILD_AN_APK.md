@@ -1,3 +1,5 @@
+> **WQE175 v0.1.4.3 follow-on:** Read `README_WQE175_FIRST.md` first. The WQA387 v0.1.4.2 instructions below are historical for that source candidate.
+
 # CURRENT WQA387 OWNER-BUILD HANDOFF — v0.1.4.2 SOURCE ONLY
 
 Read `WQA387_OWNER_BUILD_HANDOFF.md` first. This is source-only, NOT an APK. The current manual workflow artifact label is `LinkSender-v0.1.4.2-debug-APK`. Historical labels below are superseded. Preserve the owner-tested v0.1.2 APK and signing/rollback state. No owner devices, repositories or accounts were touched.

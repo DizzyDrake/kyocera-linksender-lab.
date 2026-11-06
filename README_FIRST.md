@@ -1,3 +1,5 @@
+> **WQE175 v0.1.4.3 follow-on:** Read `README_WQE175_FIRST.md` first. The WQA387 v0.1.4.2 instructions below are historical for that source candidate.
+
 > **CURRENT SOURCE-ONLY OWNER-BUILD CANDIDATE: WQA387 v0.1.4.2, 2026-10-28.** Based on byte-pinned WQC065 v0.1.4.1 and independently reproduced WQE089 deferred ACTION_SEND focus correction. Read `WQA387_OWNER_BUILD_HANDOFF.md` first. **Not an APK, not device-tested.** The owner-tested v0.1.2 APK remains the known-good fallback. Historical notes below are preserved.
 
 > **CURRENT SOURCE-ONLY OWNER-BUILD CANDIDATE: WQC065 v0.1.4.1, 2026-10-26.** Frozen WQC059 v0.1.4.0 SHA-256 `d8f32f8bed61ac6c6b70268d4dbf245e02c13ea06a2e43e92e98df858804db74`; integrates WQB324 + WQA321 malformed bare-link boundary guards. Read `WQC065_OWNER_BUILD_HANDOFF.md` first. **Not an APK, not device-tested.** Owner-tested v0.1.2 remains the known-good fallback. Historical notes below are preserved.
