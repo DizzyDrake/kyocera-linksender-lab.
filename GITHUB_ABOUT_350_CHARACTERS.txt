@@ -1,0 +1,1 @@
+Link Sender shares links and text between paired Android devices over Bluetooth. Designed for real buttons on the Kyocera, with a separate Windows receiver project in development. Open-source software built by Aurora and GPT-6.

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-22",
+  "source": "WQE210_LINK_SENDER_v0.1.4.3_APACHE2_LICENSED_SOURCE_ONLY.zip",
+  "source_sha256": "7bfb22c7e0b0237f3f6224e83188397e9916472b1b44ea0c28a1b8f7b4cf28b3",
+  "supplied_apk_zip_sha256": "c11c1b27402b242bbcf6869226887f136b4847839d5ea2442485c0c8d14c90b6",
+  "supplied_apk_sha256": "3f5fa644151d3d99db81340eda9c53831ff24f26d7edb030f523b4907f8aa3b7",
+  "about_characters": 227,
+  "icon_xml_parsed": true,
+  "all_overlay_images_verified": true,
+  "merged_source_unchanged_except_manifest_readme": true,
+  "manifest_references_icon": true,
+  "tests": {
+    "java_core_tests": {
+      "exit_code": 0,
+      "tail": "PASS 28 synthetic assertions; no Android SDK/device used\nPASS 13 cancellation-gate checks; no Bluetooth or Android runtime\nPASS 39 v0.1.3 text/URL/protocol assertions; no Android SDK/device used\nPASS 12 regex bounded-host assertions (host Java only)\nPASS 15 host-only explicit standalone URL assertions\nPASS 20 apostrophe URL fidelity assertions\nPASS 14 independent LinkText stack and punctuation assertions\nPASS 1215 WQB280 independent bounded-regex and output-validation assertions; host Java only\nequivalence_digest=92c158d063e82622ae6463ac9f4c21b9df430e7438a5c8985dd4bd95828df025 cases=10009\nunmatched_closing_parens=4096 elapsed_ms=0 expected_url_retained=true\nunmatched_closing_parens=8192 elapsed_ms=0 expected_url_retained=true\nunmatched_closing_parens=16384 elapsed_ms=1 expected_url_retained=true\nunmatched_closing_parens=32768 elapsed_ms=2 expected_url_retained=true\nunmatched_closing_parens=65536 elapsed_ms=4 expected_url_retained=true\nPASS 7 positive cases; source only\nUnicode boundary: 6 checked, 0 confirmed failures; source only\nPASS 14 WQE059 URL-fragment fidelity assertions; host Java only\nPASS 10 WQC059 source-only sender/receiver trial assertions\nPASS 12 bare authority fidelity cases\nPASS 39 WQA321 independent boundary/frame assertions (host-only)\n"
+    },
+    "core-tests/check_source_safety.py": {
+      "exit_code": 0,
+      "tail": "PASS 25 static source/API integration assertions; Android compilation not run\n"
+    },
+    "core-tests/test_green_ui_contract.py": {
+      "exit_code": 0,
+      "tail": "PASS 22 UI/style/metadata source contract checks; NOT Android build or visual acceptance\n"
+    }
+  },
+  "android_sdk_build_ran": false,
+  "github_repo_inspected": false
+}
