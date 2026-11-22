@@ -2,7 +2,7 @@
 
 ![Link Sender icon](repo-assets/link-sender-icon-512.png)
 
-**Send a link. Send a note. Keep the buttons.**
+**Send a link from your Dumbphone to a smartphone.**
 
 Link Sender moves links and text between paired Android devices over Bluetooth. It was designed around the Kyocera DuraXA Equip's physical keypad and also supports touch-enabled Android phones.
 
